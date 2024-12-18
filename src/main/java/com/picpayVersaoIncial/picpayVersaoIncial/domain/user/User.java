@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "users")
 @Getter
 @Setter
-//@NoArgsConstructor // Construtor padrão necessário para o Hibernate
+@NoArgsConstructor // Construtor padrão necessário para o Hibernate
 @AllArgsConstructor // Construtor com todos os argumentos
 @EqualsAndHashCode(of = "id")
 public class User {
@@ -25,7 +25,7 @@ public class User {
     @NotBlank(message = "Nome é obrigatorio")
     private String firstName;
 
-    @NotBlank(message = "Nome final obrogatorio")
+    @NotBlank(message = "Nome final obrigatorio")
     private String lastName;
 
     @Column(unique = true)
