@@ -4,21 +4,18 @@ import com.picpayVersaoIncial.picpayVersaoIncial.domain.transaction.Transaction;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.usertype.UserType;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity(name="users")
-@Table(name="users")
+@Entity(name = "users")
+@Table(name = "users")
 @Getter
 @Setter
-@AllArgsConstructor
-@EqualsAndHashCode(of="id")
+//@NoArgsConstructor // Construtor padrão necessário para o Hibernate
+@AllArgsConstructor // Construtor com todos os argumentos
+@EqualsAndHashCode(of = "id")
 public class User {
 
     @Id
@@ -41,14 +38,9 @@ public class User {
     private String password;
 
     @Column(precision = 19, scale = 2)
-    private BigDecimal balance;
+    public BigDecimal balance;
 
     @Enumerated(EnumType.STRING)
-    private UserType userType;
+    public UserType userType;
 
-    @OneToMany(mappedBy = "sender")
-    private List<Transaction> sentTransactions;
-
-    @OneToMany(mappedBy = "receiver")
-    private List<Transaction> receivedTransactions;
 }
