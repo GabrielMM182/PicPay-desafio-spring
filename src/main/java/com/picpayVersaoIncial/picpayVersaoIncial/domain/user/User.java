@@ -1,6 +1,7 @@
 package com.picpayVersaoIncial.picpayVersaoIncial.domain.user;
 
 import com.picpayVersaoIncial.picpayVersaoIncial.domain.transaction.Transaction;
+import com.picpayVersaoIncial.picpayVersaoIncial.dtos.UserDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -42,5 +43,15 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     public UserType userType;
+
+    public User(UserDTO data){
+        this.firstName = data.firstname();
+        this.lastName = data.lastname();
+        this.balance = data.balance();
+        this.userType = data.userType();
+        this.document = data.document();
+        this.email = data.email();
+        this.password = data.password();
+    }
 
 }
