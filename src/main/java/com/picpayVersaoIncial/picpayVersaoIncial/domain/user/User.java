@@ -45,8 +45,8 @@ public class User {
     public UserType userType;
 
     public User(UserDTO data){
-        this.firstName = data.firstname();
-        this.lastName = data.lastname();
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
         this.balance = data.balance();
         this.userType = data.userType();
         this.document = data.document();
