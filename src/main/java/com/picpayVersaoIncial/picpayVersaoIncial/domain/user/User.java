@@ -23,10 +23,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank(message = "Nome é obrigatorio")
+    //@NotBlank(message = "Nome é obrigatorio")
     private String firstName;
 
-    @NotBlank(message = "Nome final obrigatorio")
+    //@NotBlank(message = "Nome final obrigatorio")
     private String lastName;
 
     @Column(unique = true)
